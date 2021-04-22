@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <bitset>
 #include <vector>
 using namespace std;
@@ -18,7 +17,7 @@ int main(int argc, char *argv[]) {
 	int paridadVertical1s = 0;
 	int paridadHorizontal1s = 0;
 	
-	//Añadidura de los bits de paridad impar al final de cada fila
+	//AÃ±adidura de los bits de paridad impar al final de cada fila
 	string substr;
 	int contador1s = 0;
 	
@@ -41,7 +40,7 @@ int main(int argc, char *argv[]) {
 		
 	}
 	
-	//Añadidura de los bits de paridad impar al final de cada columna menos la ultima
+	//AÃ±adidura de los bits de paridad impar al final de cada columna menos la ultima
 	string filaBitsParidadVertical;
 	for (unsigned int j = 0; j < 7; j++) {
 		int contBitsColumna = 0;
@@ -55,22 +54,11 @@ int main(int argc, char *argv[]) {
 			filaBitsParidadVertical.append("0");
 		}
 	}
-	//Una vez que la fila de bits de paridad esta armada la añado a la matriz de paridad
+	//Una vez que la fila de bits de paridad esta armada la aÃ±ado a la matriz de paridad
 	matrizParidad.push_back(filaBitsParidadVertical);
 	
-	//Añado el bit de paridad entre la columna y la fila de paridad
-	(paridadHorizontal1s+paridadVertical1s) % 2 == 0 ? matrizParidad[binario.length()/7].append("1") : 
-													   matrizParidad[binario.length()/7].append("0");
-	
-	
-	ofstream myfile;
-	myfile.open ("resultadosParidad2.txt");
-	//Muestro la cadena codificada
-	for (unsigned int i = 0; i<matrizParidad.size(); i++) {
-		myfile<<matrizParidad[i];
-	}
-	myfile.close();
-	
+	//AÃ±ado el bit de paridad entre la columna y la fila de paridad
+	(paridadHorizontal1s+paridadVertical1s) % 2 == 0 ? matrizParidad[binario.length()/7].append("1") : matrizParidad[binario.length()/7].append("0");
 	
 	return 0;
 }
